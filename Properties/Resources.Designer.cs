@@ -61,6 +61,15 @@ namespace DataTriageTransferTool.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to select * from aors where aor = .
+        /// </summary>
+        internal static string aor_item {
+            get {
+                return ResourceManager.GetString("aor_item", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to select * from case_folder.
         /// </summary>
         internal static string case_folder {
@@ -70,11 +79,29 @@ namespace DataTriageTransferTool.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to select * from cellex_types where type =.
+        /// </summary>
+        internal static string cellex_item {
+            get {
+                return ResourceManager.GetString("cellex_item", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to select * from cellex_types.
         /// </summary>
         internal static string cellex_types {
             get {
                 return ResourceManager.GetString("cellex_types", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to select * from classifications where classification =.
+        /// </summary>
+        internal static string classification_item {
+            get {
+                return ResourceManager.GetString("classification_item", resourceCulture);
             }
         }
         
@@ -124,6 +151,15 @@ namespace DataTriageTransferTool.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to select * from medex_types where type = .
+        /// </summary>
+        internal static string medex_item {
+            get {
+                return ResourceManager.GetString("medex_item", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to select * from medex_types.
         /// </summary>
         internal static string medex_types {
@@ -133,7 +169,7 @@ namespace DataTriageTransferTool.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to select id, aor from aors.
+        ///   Looks up a localized string similar to select * from aors.
         /// </summary>
         internal static string select_aors {
             get {
@@ -151,7 +187,7 @@ namespace DataTriageTransferTool.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to select id,classification from classifications.
+        ///   Looks up a localized string similar to select * from classifications.
         /// </summary>
         internal static string select_classifications {
             get {
@@ -165,6 +201,15 @@ namespace DataTriageTransferTool.Properties {
         internal static string select_items {
             get {
                 return ResourceManager.GetString("select_items", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to select * from sizes where type = .
+        /// </summary>
+        internal static string size_item {
+            get {
+                return ResourceManager.GetString("size_item", resourceCulture);
             }
         }
         
@@ -183,6 +228,24 @@ namespace DataTriageTransferTool.Properties {
         internal static string Version {
             get {
                 return ResourceManager.GetString("Version", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to select * from zip.
+        /// </summary>
+        internal static string zip_size {
+            get {
+                return ResourceManager.GetString("zip_size", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to select * from zip where size = .
+        /// </summary>
+        internal static string zip_size_item {
+            get {
+                return ResourceManager.GetString("zip_size_item", resourceCulture);
             }
         }
     }

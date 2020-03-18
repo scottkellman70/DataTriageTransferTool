@@ -10,18 +10,14 @@ using System.Windows.Forms;
 
 namespace DataTriageTransferTool
 {
-    //Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + @"\Cases"
     public partial class Settings : Form
     {
         public Settings()
         {
             InitializeComponent();
-            GetClassifications();
-            GetFlumeData();
-            GetMedexTypes();
-            GetCellexTypes();
-            GetSizes();
-            GetAors();
+
+            GetCaseFolder();
+            GetZipSize();
         }
 
         private void ButtonExit_Click(object sender, EventArgs e)
@@ -33,89 +29,33 @@ namespace DataTriageTransferTool
         {
             this.Close();
         }
-
-        private void GetClassifications()
+        
+        
+        private void GetCaseFolder()
         {
-            DataTable dataTable = Database.Get.Classifications();
+            DataTable dataTable = Database.Get.CaseFolder();
 
             if (dataTable.Rows.Count > 0)
             {
                 foreach(DataRow item in dataTable.Rows)
                 {
-                    listBoxClassifications.Items.Add(item["classification"].ToString());
+                    textBoxCaseFolder.Text = item["location"].ToString();
                 }
             }
         }
 
-        private void GetFlumeData()
+        private void GetZipSize()
         {
-            DataTable dataTable = Database.Get.FlumeData();
+            DataTable dataTable = Database.Get.ZipSize();
 
             if (dataTable.Rows.Count > 0)
             {
                 foreach (DataRow item in dataTable.Rows)
                 {
-                    textBoxFlumeIP.Text = item["ip"].ToString();
-                    textBoxFlumeDrive.Text = item["drive"].ToString();
+                    textBoxZipSize.Text = item["size"].ToString();
                 }
-                   
             }
         }
         
-        private void GetMedexTypes()
-        {
-            DataTable dataTable = Database.Get.MedexTypes();
-
-            if (dataTable.Rows.Count > 0)
-            {
-                foreach (DataRow item in dataTable.Rows)
-                {
-                    listBoxMedexTypes.Items.Add(item["type"].ToString());
-                }
-
-            }
-        }
-        
-        private void GetCellexTypes()
-        {
-            DataTable dataTable = Database.Get.CellexTypes();
-
-            if (dataTable.Rows.Count > 0)
-            {
-                foreach (DataRow item in dataTable.Rows)
-                {
-                    listBoxMobileTypes.Items.Add(item["type"].ToString());
-                }
-
-            }
-        }
-
-        private void GetSizes()
-        {
-            DataTable dataTable = Database.Get.Sizes();
-
-            if (dataTable.Rows.Count > 0)
-            {
-                foreach (DataRow item in dataTable.Rows)
-                {
-                    listBoxSizes.Items.Add(item["type"].ToString());
-                }
-
-            }
-        }
-
-        private void GetAors()
-        {
-            DataTable dataTable = Database.Get.AORS();
-
-            if (dataTable.Rows.Count > 0)
-            {
-                foreach (DataRow item in dataTable.Rows)
-                {
-                    listBoxAOR.Items.Add(item["aor"].ToString());
-                }
-
-            }
-        }
     }
 }

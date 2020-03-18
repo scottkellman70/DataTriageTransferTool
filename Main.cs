@@ -93,9 +93,33 @@ namespace DataTriageTransferTool
 
         private void SetCaseFolder()
         {
-            string desktop = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
-            string path = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop), @"\Cases");
-            Database.Save.CaseFolder(path, true);
+            Environment.SpecialFolder desktop = Environment.SpecialFolder.Desktop;
+            string desktopPath = Environment.GetFolderPath(desktop) + @"\Cases";
+            Database.Insert.CaseFolder(desktopPath, true);
+        }
+
+        private void ButtonMedexTypes_Click(object sender, EventArgs e)
+        {
+            MedexTypes medexTypes = new MedexTypes();
+            medexTypes.ShowDialog();
+        }
+
+        private void ButtonCellex_Click(object sender, EventArgs e)
+        {
+            CellexTypes cellexTypes = new CellexTypes();
+            cellexTypes.ShowDialog();
+        }
+
+        private void ButonAOR_Click(object sender, EventArgs e)
+        {
+            AOR aor = new AOR();
+            aor.ShowDialog();
+        }
+
+        private void ButtonClassification_Click(object sender, EventArgs e)
+        {
+            Classifications classifications = new Classifications();
+            classifications.ShowDialog();
         }
     }
 }

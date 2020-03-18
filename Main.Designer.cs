@@ -43,12 +43,20 @@
             this.ButtonEditItem = new System.Windows.Forms.Button();
             this.ButtonDeleteCase = new System.Windows.Forms.Button();
             this.ButtonDelete = new System.Windows.Forms.Button();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.ButtonCellex = new System.Windows.Forms.Button();
+            this.ButtonMedexTypes = new System.Windows.Forms.Button();
+            this.ButonAOR = new System.Windows.Forms.Button();
+            this.ButtonClassification = new System.Windows.Forms.Button();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // ButtonNewCase
             // 
+            this.ButtonNewCase.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.ButtonNewCase.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ButtonNewCase.Location = new System.Drawing.Point(36, 33);
-            this.ButtonNewCase.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.ButtonNewCase.Margin = new System.Windows.Forms.Padding(4);
             this.ButtonNewCase.Name = "ButtonNewCase";
             this.ButtonNewCase.Size = new System.Drawing.Size(112, 31);
             this.ButtonNewCase.TabIndex = 0;
@@ -58,8 +66,10 @@
             // 
             // ButtonNewItem
             // 
-            this.ButtonNewItem.Location = new System.Drawing.Point(36, 82);
-            this.ButtonNewItem.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.ButtonNewItem.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.ButtonNewItem.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ButtonNewItem.Location = new System.Drawing.Point(36, 73);
+            this.ButtonNewItem.Margin = new System.Windows.Forms.Padding(4);
             this.ButtonNewItem.Name = "ButtonNewItem";
             this.ButtonNewItem.Size = new System.Drawing.Size(112, 31);
             this.ButtonNewItem.TabIndex = 1;
@@ -69,8 +79,10 @@
             // 
             // ButtonTriage
             // 
-            this.ButtonTriage.Location = new System.Drawing.Point(36, 132);
-            this.ButtonTriage.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.ButtonTriage.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.ButtonTriage.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ButtonTriage.Location = new System.Drawing.Point(36, 112);
+            this.ButtonTriage.Margin = new System.Windows.Forms.Padding(4);
             this.ButtonTriage.Name = "ButtonTriage";
             this.ButtonTriage.Size = new System.Drawing.Size(112, 31);
             this.ButtonTriage.TabIndex = 2;
@@ -80,8 +92,10 @@
             // 
             // ButtonSettings
             // 
-            this.ButtonSettings.Location = new System.Drawing.Point(36, 186);
-            this.ButtonSettings.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.ButtonSettings.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.ButtonSettings.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ButtonSettings.Location = new System.Drawing.Point(36, 151);
+            this.ButtonSettings.Margin = new System.Windows.Forms.Padding(4);
             this.ButtonSettings.Name = "ButtonSettings";
             this.ButtonSettings.Size = new System.Drawing.Size(112, 31);
             this.ButtonSettings.TabIndex = 3;
@@ -91,8 +105,10 @@
             // 
             // ButtonInventory
             // 
-            this.ButtonInventory.Location = new System.Drawing.Point(36, 241);
-            this.ButtonInventory.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.ButtonInventory.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.ButtonInventory.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ButtonInventory.Location = new System.Drawing.Point(36, 190);
+            this.ButtonInventory.Margin = new System.Windows.Forms.Padding(4);
             this.ButtonInventory.Name = "ButtonInventory";
             this.ButtonInventory.Size = new System.Drawing.Size(112, 31);
             this.ButtonInventory.TabIndex = 4;
@@ -102,8 +118,10 @@
             // 
             // ButtonExit
             // 
-            this.ButtonExit.Location = new System.Drawing.Point(36, 291);
-            this.ButtonExit.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.ButtonExit.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.ButtonExit.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ButtonExit.Location = new System.Drawing.Point(36, 229);
+            this.ButtonExit.Margin = new System.Windows.Forms.Padding(4);
             this.ButtonExit.Name = "ButtonExit";
             this.ButtonExit.Size = new System.Drawing.Size(112, 31);
             this.ButtonExit.TabIndex = 5;
@@ -195,12 +213,72 @@
             this.ButtonDelete.TabStop = false;
             this.ButtonDelete.UseVisualStyleBackColor = true;
             // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.ButtonClassification);
+            this.groupBox1.Controls.Add(this.ButonAOR);
+            this.groupBox1.Controls.Add(this.ButtonCellex);
+            this.groupBox1.Controls.Add(this.ButtonMedexTypes);
+            this.groupBox1.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox1.Location = new System.Drawing.Point(36, 267);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(112, 248);
+            this.groupBox1.TabIndex = 25;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Settings";
+            // 
+            // ButtonCellex
+            // 
+            this.ButtonCellex.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.ButtonCellex.Location = new System.Drawing.Point(6, 62);
+            this.ButtonCellex.Name = "ButtonCellex";
+            this.ButtonCellex.Size = new System.Drawing.Size(99, 31);
+            this.ButtonCellex.TabIndex = 26;
+            this.ButtonCellex.Text = "CELLEX";
+            this.ButtonCellex.UseVisualStyleBackColor = true;
+            this.ButtonCellex.Click += new System.EventHandler(this.ButtonCellex_Click);
+            // 
+            // ButtonMedexTypes
+            // 
+            this.ButtonMedexTypes.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.ButtonMedexTypes.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ButtonMedexTypes.Location = new System.Drawing.Point(6, 25);
+            this.ButtonMedexTypes.Name = "ButtonMedexTypes";
+            this.ButtonMedexTypes.Size = new System.Drawing.Size(100, 31);
+            this.ButtonMedexTypes.TabIndex = 25;
+            this.ButtonMedexTypes.Text = "MEDEX";
+            this.ButtonMedexTypes.UseVisualStyleBackColor = true;
+            this.ButtonMedexTypes.Click += new System.EventHandler(this.ButtonMedexTypes_Click);
+            // 
+            // ButonAOR
+            // 
+            this.ButonAOR.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.ButonAOR.Location = new System.Drawing.Point(6, 96);
+            this.ButonAOR.Name = "ButonAOR";
+            this.ButonAOR.Size = new System.Drawing.Size(99, 31);
+            this.ButonAOR.TabIndex = 27;
+            this.ButonAOR.Text = "AOR";
+            this.ButonAOR.UseVisualStyleBackColor = true;
+            this.ButonAOR.Click += new System.EventHandler(this.ButonAOR_Click);
+            // 
+            // ButtonClassification
+            // 
+            this.ButtonClassification.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.ButtonClassification.Location = new System.Drawing.Point(7, 133);
+            this.ButtonClassification.Name = "ButtonClassification";
+            this.ButtonClassification.Size = new System.Drawing.Size(99, 31);
+            this.ButtonClassification.TabIndex = 28;
+            this.ButtonClassification.Text = "Classification";
+            this.ButtonClassification.UseVisualStyleBackColor = true;
+            this.ButtonClassification.Click += new System.EventHandler(this.ButtonClassification_Click);
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(746, 408);
+            this.ClientSize = new System.Drawing.Size(746, 542);
             this.ControlBox = false;
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.ButtonDelete);
             this.Controls.Add(this.ButtonDeleteCase);
             this.Controls.Add(this.ButtonEditItem);
@@ -216,10 +294,11 @@
             this.Controls.Add(this.ButtonNewItem);
             this.Controls.Add(this.ButtonNewCase);
             this.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Main";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Main";
+            this.groupBox1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -240,6 +319,11 @@
         private System.Windows.Forms.Button ButtonEditItem;
         private System.Windows.Forms.Button ButtonDeleteCase;
         private System.Windows.Forms.Button ButtonDelete;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Button ButtonMedexTypes;
+        private System.Windows.Forms.Button ButtonCellex;
+        private System.Windows.Forms.Button ButtonClassification;
+        private System.Windows.Forms.Button ButonAOR;
     }
 }
 

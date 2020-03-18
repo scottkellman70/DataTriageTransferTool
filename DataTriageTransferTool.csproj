@@ -62,11 +62,29 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AOR.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AOR.Designer.cs">
+      <DependentUpon>AOR.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Classifications.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Classifications.Designer.cs">
+      <DependentUpon>Classifications.cs</DependentUpon>
+    </Compile>
     <Compile Include="Database.cs" />
     <Compile Include="DT3DataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DT3DataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Flume.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Flume.Designer.cs">
+      <DependentUpon>Flume.cs</DependentUpon>
     </Compile>
     <Compile Include="Inventory.cs">
       <SubType>Form</SubType>
@@ -80,7 +98,19 @@
     <Compile Include="Main.Designer.cs">
       <DependentUpon>Main.cs</DependentUpon>
     </Compile>
+    <Compile Include="MedexTypes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MedexTypes.Designer.cs">
+      <DependentUpon>MedexTypes.cs</DependentUpon>
+    </Compile>
     <Compile Include="Messaging.cs" />
+    <Compile Include="CellexTypes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CellexTypes.Designer.cs">
+      <DependentUpon>CellexTypes.cs</DependentUpon>
+    </Compile>
     <Compile Include="NewCase.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -101,17 +131,38 @@
     <Compile Include="Settings.Designer.cs">
       <DependentUpon>Settings.cs</DependentUpon>
     </Compile>
+    <Compile Include="Sizes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sizes.Designer.cs">
+      <DependentUpon>Sizes.cs</DependentUpon>
+    </Compile>
     <Compile Include="Triage.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Triage.Designer.cs">
       <DependentUpon>Triage.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="AOR.resx">
+      <DependentUpon>AOR.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Classifications.resx">
+      <DependentUpon>Classifications.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Flume.resx">
+      <DependentUpon>Flume.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Inventory.resx">
       <DependentUpon>Inventory.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Main.resx">
       <DependentUpon>Main.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MedexTypes.resx">
+      <DependentUpon>MedexTypes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CellexTypes.resx">
+      <DependentUpon>CellexTypes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="NewCase.resx">
       <DependentUpon>NewCase.cs</DependentUpon>
@@ -131,6 +182,9 @@
     </Compile>
     <EmbeddedResource Include="Settings.resx">
       <DependentUpon>Settings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sizes.resx">
+      <DependentUpon>Sizes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Triage.resx">
       <DependentUpon>Triage.cs</DependentUpon>
