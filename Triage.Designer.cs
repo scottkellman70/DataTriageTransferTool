@@ -155,6 +155,7 @@
             this.Controls.Add(this.listBoxCaseFolders);
             this.Controls.Add(this.ButtonBrowseCase);
             this.Controls.Add(this.ButtonCloseForm);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Name = "Triage";
             this.Text = "Triage";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPreview)).EndInit();

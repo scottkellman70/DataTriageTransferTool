@@ -48,6 +48,8 @@
             this.labelObjective = new System.Windows.Forms.Label();
             this.TextBoxMgrs = new System.Windows.Forms.TextBox();
             this.labelMgrs = new System.Windows.Forms.Label();
+            this.textBoxCaseId = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // ButtonExit
@@ -83,6 +85,7 @@
             this.ButtonSaveCase.Size = new System.Drawing.Size(50, 50);
             this.ButtonSaveCase.TabIndex = 9;
             this.ButtonSaveCase.UseVisualStyleBackColor = true;
+            this.ButtonSaveCase.Click += new System.EventHandler(this.ButtonSaveCase_Click);
             // 
             // ComboBoxClassification
             // 
@@ -97,7 +100,7 @@
             // TextBoxSubmitterEmail
             // 
             this.TextBoxSubmitterEmail.Font = new System.Drawing.Font("Arial", 12F);
-            this.TextBoxSubmitterEmail.Location = new System.Drawing.Point(539, 180);
+            this.TextBoxSubmitterEmail.Location = new System.Drawing.Point(541, 230);
             this.TextBoxSubmitterEmail.Margin = new System.Windows.Forms.Padding(4);
             this.TextBoxSubmitterEmail.Name = "TextBoxSubmitterEmail";
             this.TextBoxSubmitterEmail.Size = new System.Drawing.Size(401, 26);
@@ -107,7 +110,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Arial", 12F);
-            this.label1.Location = new System.Drawing.Point(535, 153);
+            this.label1.Location = new System.Drawing.Point(537, 203);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(128, 18);
@@ -117,7 +120,7 @@
             // TextBoxSubmitterName
             // 
             this.TextBoxSubmitterName.Font = new System.Drawing.Font("Arial", 12F);
-            this.TextBoxSubmitterName.Location = new System.Drawing.Point(539, 83);
+            this.TextBoxSubmitterName.Location = new System.Drawing.Point(540, 157);
             this.TextBoxSubmitterName.Margin = new System.Windows.Forms.Padding(4);
             this.TextBoxSubmitterName.Name = "TextBoxSubmitterName";
             this.TextBoxSubmitterName.Size = new System.Drawing.Size(401, 26);
@@ -127,7 +130,7 @@
             // 
             this.labelSubmitterName.AutoSize = true;
             this.labelSubmitterName.Font = new System.Drawing.Font("Arial", 12F);
-            this.labelSubmitterName.Location = new System.Drawing.Point(535, 55);
+            this.labelSubmitterName.Location = new System.Drawing.Point(536, 129);
             this.labelSubmitterName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelSubmitterName.Name = "labelSubmitterName";
             this.labelSubmitterName.Size = new System.Drawing.Size(125, 18);
@@ -149,7 +152,7 @@
             // 
             this.labelComments.AutoSize = true;
             this.labelComments.Font = new System.Drawing.Font("Arial", 12F);
-            this.labelComments.Location = new System.Drawing.Point(25, 336);
+            this.labelComments.Location = new System.Drawing.Point(26, 355);
             this.labelComments.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelComments.Name = "labelComments";
             this.labelComments.Size = new System.Drawing.Size(410, 18);
@@ -159,7 +162,7 @@
             // TextBoxComments
             // 
             this.TextBoxComments.Font = new System.Drawing.Font("Arial", 12F);
-            this.TextBoxComments.Location = new System.Drawing.Point(29, 374);
+            this.TextBoxComments.Location = new System.Drawing.Point(30, 393);
             this.TextBoxComments.Margin = new System.Windows.Forms.Padding(4);
             this.TextBoxComments.Multiline = true;
             this.TextBoxComments.Name = "TextBoxComments";
@@ -172,7 +175,7 @@
             this.ComboBoxAor.DisplayMember = "aor";
             this.ComboBoxAor.Font = new System.Drawing.Font("Arial", 12F);
             this.ComboBoxAor.FormattingEnabled = true;
-            this.ComboBoxAor.Location = new System.Drawing.Point(538, 268);
+            this.ComboBoxAor.Location = new System.Drawing.Point(539, 308);
             this.ComboBoxAor.Margin = new System.Windows.Forms.Padding(4);
             this.ComboBoxAor.Name = "ComboBoxAor";
             this.ComboBoxAor.Size = new System.Drawing.Size(263, 26);
@@ -183,7 +186,7 @@
             // 
             this.labelAor.AutoSize = true;
             this.labelAor.Font = new System.Drawing.Font("Arial", 12F);
-            this.labelAor.Location = new System.Drawing.Point(535, 241);
+            this.labelAor.Location = new System.Drawing.Point(536, 281);
             this.labelAor.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelAor.Name = "labelAor";
             this.labelAor.Size = new System.Drawing.Size(42, 18);
@@ -193,7 +196,7 @@
             // TextBoxSubjectName
             // 
             this.TextBoxSubjectName.Font = new System.Drawing.Font("Arial", 12F);
-            this.TextBoxSubjectName.Location = new System.Drawing.Point(28, 268);
+            this.TextBoxSubjectName.Location = new System.Drawing.Point(29, 308);
             this.TextBoxSubjectName.Margin = new System.Windows.Forms.Padding(4);
             this.TextBoxSubjectName.Name = "TextBoxSubjectName";
             this.TextBoxSubjectName.Size = new System.Drawing.Size(401, 26);
@@ -203,7 +206,7 @@
             // 
             this.labelSubjectName.AutoSize = true;
             this.labelSubjectName.Font = new System.Drawing.Font("Arial", 12F);
-            this.labelSubjectName.Location = new System.Drawing.Point(24, 241);
+            this.labelSubjectName.Location = new System.Drawing.Point(25, 281);
             this.labelSubjectName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelSubjectName.Name = "labelSubjectName";
             this.labelSubjectName.Size = new System.Drawing.Size(182, 18);
@@ -213,7 +216,7 @@
             // TextBoxObjective
             // 
             this.TextBoxObjective.Font = new System.Drawing.Font("Arial", 12F);
-            this.TextBoxObjective.Location = new System.Drawing.Point(28, 180);
+            this.TextBoxObjective.Location = new System.Drawing.Point(30, 230);
             this.TextBoxObjective.Margin = new System.Windows.Forms.Padding(4);
             this.TextBoxObjective.Name = "TextBoxObjective";
             this.TextBoxObjective.Size = new System.Drawing.Size(401, 26);
@@ -223,7 +226,7 @@
             // 
             this.labelObjective.AutoSize = true;
             this.labelObjective.Font = new System.Drawing.Font("Arial", 12F);
-            this.labelObjective.Location = new System.Drawing.Point(24, 153);
+            this.labelObjective.Location = new System.Drawing.Point(26, 203);
             this.labelObjective.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelObjective.Name = "labelObjective";
             this.labelObjective.Size = new System.Drawing.Size(288, 18);
@@ -233,7 +236,7 @@
             // TextBoxMgrs
             // 
             this.TextBoxMgrs.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TextBoxMgrs.Location = new System.Drawing.Point(28, 82);
+            this.TextBoxMgrs.Location = new System.Drawing.Point(29, 156);
             this.TextBoxMgrs.Margin = new System.Windows.Forms.Padding(5);
             this.TextBoxMgrs.Name = "TextBoxMgrs";
             this.TextBoxMgrs.Size = new System.Drawing.Size(401, 26);
@@ -243,12 +246,32 @@
             // 
             this.labelMgrs.AutoSize = true;
             this.labelMgrs.Font = new System.Drawing.Font("Arial", 12F);
-            this.labelMgrs.Location = new System.Drawing.Point(24, 55);
+            this.labelMgrs.Location = new System.Drawing.Point(25, 129);
             this.labelMgrs.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.labelMgrs.Name = "labelMgrs";
             this.labelMgrs.Size = new System.Drawing.Size(59, 18);
             this.labelMgrs.TabIndex = 20;
             this.labelMgrs.Text = "MGRS:";
+            // 
+            // textBoxCaseId
+            // 
+            this.textBoxCaseId.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxCaseId.Location = new System.Drawing.Point(29, 90);
+            this.textBoxCaseId.Margin = new System.Windows.Forms.Padding(5);
+            this.textBoxCaseId.Name = "textBoxCaseId";
+            this.textBoxCaseId.Size = new System.Drawing.Size(401, 26);
+            this.textBoxCaseId.TabIndex = 39;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Arial", 12F);
+            this.label2.Location = new System.Drawing.Point(25, 63);
+            this.label2.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(66, 18);
+            this.label2.TabIndex = 40;
+            this.label2.Text = "Case Id:";
             // 
             // NewCase
             // 
@@ -256,6 +279,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(964, 699);
             this.ControlBox = false;
+            this.Controls.Add(this.textBoxCaseId);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.ButtonExit);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.ButtonSaveCase);
@@ -276,6 +301,7 @@
             this.Controls.Add(this.TextBoxMgrs);
             this.Controls.Add(this.labelMgrs);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "NewCase";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -306,5 +332,7 @@
         private System.Windows.Forms.Label labelObjective;
         private System.Windows.Forms.TextBox TextBoxMgrs;
         private System.Windows.Forms.Label labelMgrs;
+        private System.Windows.Forms.TextBox textBoxCaseId;
+        private System.Windows.Forms.Label label2;
     }
 }

@@ -75,6 +75,7 @@
       <DependentUpon>Classifications.cs</DependentUpon>
     </Compile>
     <Compile Include="Database.cs" />
+    <Compile Include="DT3Case.cs" />
     <Compile Include="DT3DataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -86,12 +87,14 @@
     <Compile Include="Flume.Designer.cs">
       <DependentUpon>Flume.cs</DependentUpon>
     </Compile>
+    <Compile Include="GFG.cs" />
     <Compile Include="Inventory.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Inventory.Designer.cs">
       <DependentUpon>Inventory.cs</DependentUpon>
     </Compile>
+    <Compile Include="Item.cs" />
     <Compile Include="Main.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -125,11 +128,11 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Settings.cs">
+    <Compile Include="CaseFolder.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Settings.Designer.cs">
-      <DependentUpon>Settings.cs</DependentUpon>
+    <Compile Include="CaseFolder.Designer.cs">
+      <DependentUpon>CaseFolder.cs</DependentUpon>
     </Compile>
     <Compile Include="Sizes.cs">
       <SubType>Form</SubType>
@@ -142,6 +145,12 @@
     </Compile>
     <Compile Include="Triage.Designer.cs">
       <DependentUpon>Triage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ZipSize.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ZipSize.Designer.cs">
+      <DependentUpon>ZipSize.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="AOR.resx">
       <DependentUpon>AOR.cs</DependentUpon>
@@ -180,14 +189,17 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="Settings.resx">
-      <DependentUpon>Settings.cs</DependentUpon>
+    <EmbeddedResource Include="CaseFolder.resx">
+      <DependentUpon>CaseFolder.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Sizes.resx">
       <DependentUpon>Sizes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Triage.resx">
       <DependentUpon>Triage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ZipSize.resx">
+      <DependentUpon>ZipSize.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="DT3DataSet.xsc">
       <DependentUpon>DT3DataSet.xsd</DependentUpon>

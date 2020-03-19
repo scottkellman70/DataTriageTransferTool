@@ -23,9 +23,19 @@ namespace DataTriageTransferTool
             this.Close();
         }
 
-        private void buttonCancelNewItem_Click(object sender, EventArgs e)
+        private void ButtonCancelNewItem_Click(object sender, EventArgs e)
         {
             CloseForm();
+        }
+
+        private void ButtonSaveItem_Click(object sender, EventArgs e)
+        {
+            SaveNewItem();
+        }
+
+        private void SaveNewItem()
+        {
+
         }
     }
 }

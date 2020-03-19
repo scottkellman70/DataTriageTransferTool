@@ -122,6 +122,7 @@
             this.Controls.Add(this.TextBoxType);
             this.Controls.Add(this.listBoxMedexTypes);
             this.Controls.Add(this.ButtonSave);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Name = "MedexTypes";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MedexTypes";

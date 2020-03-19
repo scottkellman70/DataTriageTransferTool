@@ -1,23 +1,15 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace DataTriageTransferTool
 {
-    public partial class Settings : Form
+    public partial class CaseFolder : Form
     {
-        public Settings()
+        public CaseFolder()
         {
             InitializeComponent();
-
             GetCaseFolder();
-            GetZipSize();
         }
 
         private void ButtonExit_Click(object sender, EventArgs e)
@@ -44,18 +36,26 @@ namespace DataTriageTransferTool
             }
         }
 
-        private void GetZipSize()
+        private void ButtonSaveCaseFolder_Click(object sender, EventArgs e)
         {
-            DataTable dataTable = Database.Get.ZipSize();
-
-            if (dataTable.Rows.Count > 0)
+            if (string.IsNullOrEmpty(textBoxCaseFolder.Text))
             {
-                foreach (DataRow item in dataTable.Rows)
-                {
-                    textBoxZipSize.Text = item["size"].ToString();
-                }
+                Messaging.ShowInfoMessageBox("You mus select a folder to save case files.");
+            }
+            else
+            {
+                Database.Update.CaseFolder(textBoxCaseFolder.Text);
             }
         }
-        
+
+        private void ButtonSelectFolder_Click(object sender, EventArgs e)
+        {
+            DialogResult dialogResult = fbdCases.ShowDialog();
+            if(dialogResult == DialogResult.OK)
+            {
+                textBoxCaseFolder.Text = fbdCases.SelectedPath;
+            }
+            
+        }
     }
 }

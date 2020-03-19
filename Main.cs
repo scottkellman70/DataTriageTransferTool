@@ -49,7 +49,7 @@ namespace DataTriageTransferTool
 
         private void ButtonSettings_Click(object sender, EventArgs e)
         {
-            Settings settings = new Settings();
+            CaseFolder settings = new CaseFolder();
             settings.ShowDialog();
         }
 
@@ -69,16 +69,16 @@ namespace DataTriageTransferTool
             }
             else
             {
-                //set default case folder
                 SetCaseFolder();
             }
         }
 
-        private void GetCases()
+        public void GetCases()
         {
             DataTable dataTable = Database.Get.Cases();
-            if (dataTable.Rows.Count > 1)
+            if (dataTable.Rows.Count > 0)
             {
+                ListBoxCases.Items.Clear();
                 foreach (DataRow item in dataTable.Rows)
                 {
                     ListBoxCases.Items.Add(item["case_id"].ToString());
@@ -120,6 +120,45 @@ namespace DataTriageTransferTool
         {
             Classifications classifications = new Classifications();
             classifications.ShowDialog();
+        }
+
+        private void ButtonSizes_Click(object sender, EventArgs e)
+        {
+            Sizes sizes = new Sizes();
+            sizes.ShowDialog();
+        }
+
+        private void ButtonFlume_Click(object sender, EventArgs e)
+        {
+            Flume flume = new Flume();
+            flume.ShowDialog();
+        }
+
+        private void ButtonZipSize_Click(object sender, EventArgs e)
+        {
+            ZipSize zipSize = new ZipSize();
+            zipSize.ShowDialog();
+        }
+
+        private void ButtonCaseFolder_Click(object sender, EventArgs e)
+        {
+            CaseFolder caseFolder = new CaseFolder();
+            caseFolder.ShowDialog();
+        }
+
+        private void RbOnline_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void RbOffline_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void BtnRefreshCases_Click(object sender, EventArgs e)
+        {
+            GetCases();
         }
     }
 }

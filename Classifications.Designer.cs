@@ -122,6 +122,7 @@
             this.Controls.Add(this.TextBoxType);
             this.Controls.Add(this.ButtonSave);
             this.Controls.Add(this.listBoxClassifications);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Name = "Classifications";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Classifications";

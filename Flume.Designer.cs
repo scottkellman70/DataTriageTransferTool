@@ -85,7 +85,6 @@
             // 
             // ButtonSaveIP
             // 
-            this.ButtonSaveIP.Enabled = false;
             this.ButtonSaveIP.Location = new System.Drawing.Point(254, 32);
             this.ButtonSaveIP.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.ButtonSaveIP.Name = "ButtonSaveIP";
@@ -97,7 +96,6 @@
             // 
             // ButtonSaveDrive
             // 
-            this.ButtonSaveDrive.Enabled = false;
             this.ButtonSaveDrive.Location = new System.Drawing.Point(254, 105);
             this.ButtonSaveDrive.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.ButtonSaveDrive.Name = "ButtonSaveDrive";
@@ -120,6 +118,7 @@
             this.Controls.Add(this.label13);
             this.Controls.Add(this.textBoxFlumeDrive);
             this.Controls.Add(this.textBoxFlumeIP);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Name = "Flume";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

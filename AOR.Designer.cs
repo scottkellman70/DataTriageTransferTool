@@ -121,6 +121,7 @@
             this.Controls.Add(this.TextBoxType);
             this.Controls.Add(this.ButtonSave);
             this.Controls.Add(this.listBoxAOR);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Name = "AOR";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
