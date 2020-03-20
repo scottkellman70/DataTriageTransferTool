@@ -123,6 +123,12 @@
   <data name="case_folder" xml:space="preserve">
     <value>select * from case_folder</value>
   </data>
+  <data name="case_item" xml:space="preserve">
+    <value>select * from cases where case_id = </value>
+  </data>
+  <data name="case_item_by_int" xml:space="preserve">
+    <value>select * from cases where id = </value>
+  </data>
   <data name="cellex_item" xml:space="preserve">
     <value>select * from cellex_types where type =</value>
   </data>
@@ -133,7 +139,7 @@
     <value>select * from classifications where classification =</value>
   </data>
   <data name="dt3_connection_string" xml:space="preserve">
-    <value>Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\admin\source\repos\DataTriageTransferTool\DT3.mdf;Integrated Security=True;Connect Timeout=30</value>
+    <value>Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\OCONUS4\source\repos\DataTriageTransferTool\DT3.mdf;Integrated Security=True;Connect Timeout=30</value>
   </data>
   <data name="FlumeWorkingDirectory" xml:space="preserve">
     <value>C:\Program Files\SaratogaDataSystems\Flume</value>

@@ -59,6 +59,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.textBoxSubscriberAccount = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
+            this.tbComments = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -78,14 +79,14 @@
             this.label1.Location = new System.Drawing.Point(12, 43);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(98, 20);
+            this.label1.Size = new System.Drawing.Size(113, 20);
             this.label1.TabIndex = 2;
             this.label1.Text = "Existing Cases";
             // 
             // buttonCancelNewItem
             // 
             this.buttonCancelNewItem.Image = ((System.Drawing.Image)(resources.GetObject("buttonCancelNewItem.Image")));
-            this.buttonCancelNewItem.Location = new System.Drawing.Point(466, 399);
+            this.buttonCancelNewItem.Location = new System.Drawing.Point(454, 529);
             this.buttonCancelNewItem.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.buttonCancelNewItem.Name = "buttonCancelNewItem";
             this.buttonCancelNewItem.Size = new System.Drawing.Size(43, 43);
@@ -96,7 +97,7 @@
             // buttonSaveItem
             // 
             this.buttonSaveItem.Image = ((System.Drawing.Image)(resources.GetObject("buttonSaveItem.Image")));
-            this.buttonSaveItem.Location = new System.Drawing.Point(318, 400);
+            this.buttonSaveItem.Location = new System.Drawing.Point(306, 530);
             this.buttonSaveItem.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.buttonSaveItem.Name = "buttonSaveItem";
             this.buttonSaveItem.Size = new System.Drawing.Size(43, 43);
@@ -201,7 +202,7 @@
             this.label21.Location = new System.Drawing.Point(12, 226);
             this.label21.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(94, 20);
+            this.label21.Size = new System.Drawing.Size(109, 20);
             this.label21.TabIndex = 30;
             this.label21.Text = "Serial Number";
             // 
@@ -229,7 +230,7 @@
             this.label20.Location = new System.Drawing.Point(406, 226);
             this.label20.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(36, 20);
+            this.label20.Size = new System.Drawing.Size(40, 20);
             this.label20.TabIndex = 27;
             this.label20.Text = "Size";
             // 
@@ -239,7 +240,7 @@
             this.checkBoxSubItem.Location = new System.Drawing.Point(16, 14);
             this.checkBoxSubItem.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.checkBoxSubItem.Name = "checkBoxSubItem";
-            this.checkBoxSubItem.Size = new System.Drawing.Size(88, 24);
+            this.checkBoxSubItem.Size = new System.Drawing.Size(102, 24);
             this.checkBoxSubItem.TabIndex = 2;
             this.checkBoxSubItem.Text = "Sub Item?";
             this.checkBoxSubItem.UseVisualStyleBackColor = true;
@@ -259,7 +260,7 @@
             this.label19.Location = new System.Drawing.Point(12, 170);
             this.label19.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(47, 20);
+            this.label19.Size = new System.Drawing.Size(52, 20);
             this.label19.TabIndex = 23;
             this.label19.Text = "Model";
             // 
@@ -278,7 +279,7 @@
             this.label18.Location = new System.Drawing.Point(12, 110);
             this.label18.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(42, 20);
+            this.label18.Size = new System.Drawing.Size(48, 20);
             this.label18.TabIndex = 21;
             this.label18.Text = "Make";
             // 
@@ -297,7 +298,7 @@
             this.label2.Location = new System.Drawing.Point(13, 282);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(35, 20);
+            this.label2.Size = new System.Drawing.Size(43, 20);
             this.label2.TabIndex = 43;
             this.label2.Text = "IMEI";
             // 
@@ -316,7 +317,7 @@
             this.label3.Location = new System.Drawing.Point(13, 338);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(42, 20);
+            this.label3.Size = new System.Drawing.Size(53, 20);
             this.label3.TabIndex = 45;
             this.label3.Text = "ICCID";
             // 
@@ -335,7 +336,7 @@
             this.label4.Location = new System.Drawing.Point(405, 338);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(35, 20);
+            this.label4.Size = new System.Drawing.Size(43, 20);
             this.label4.TabIndex = 47;
             this.label4.Text = "IMSI";
             // 
@@ -354,16 +355,26 @@
             this.label5.Location = new System.Drawing.Point(406, 282);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(126, 20);
+            this.label5.Size = new System.Drawing.Size(148, 20);
             this.label5.TabIndex = 49;
             this.label5.Text = "Subscriber Account";
             // 
+            // tbComments
+            // 
+            this.tbComments.Location = new System.Drawing.Point(25, 414);
+            this.tbComments.MaxLength = 500;
+            this.tbComments.Multiline = true;
+            this.tbComments.Name = "tbComments";
+            this.tbComments.Size = new System.Drawing.Size(739, 107);
+            this.tbComments.TabIndex = 50;
+            // 
             // NewItem
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(840, 459);
+            this.ClientSize = new System.Drawing.Size(840, 582);
             this.ControlBox = false;
+            this.Controls.Add(this.tbComments);
             this.Controls.Add(this.textBoxSubscriberAccount);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.textBoxIMSI);
@@ -394,7 +405,7 @@
             this.Controls.Add(this.label18);
             this.Controls.Add(this.comboBoxExistingCases);
             this.Controls.Add(this.label1);
-            this.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "NewItem";
@@ -439,5 +450,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox textBoxSubscriberAccount;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox tbComments;
     }
 }

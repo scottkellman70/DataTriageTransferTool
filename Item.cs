@@ -20,10 +20,10 @@
         public string UpdatedDate;
         public string SubmittedDate;
         public string Type;
-        public bool isMedex;
-        public bool isMobile;
-        public bool isSim;
-        public bool isSubItem;
+        public int isMedex;
+        public int isMobile;
+        public int isSim;
+        public int isSubItem;
         public int Parent_ID;
         public string folderName;
     }

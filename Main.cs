@@ -85,12 +85,7 @@ namespace DataTriageTransferTool
                 }
             }
         }
-
-        private void GetItems()
-        {
-
-        }
-
+        
         private void SetCaseFolder()
         {
             Environment.SpecialFolder desktop = Environment.SpecialFolder.Desktop;
@@ -159,6 +154,28 @@ namespace DataTriageTransferTool
         private void BtnRefreshCases_Click(object sender, EventArgs e)
         {
             GetCases();
+        }
+
+        private void ButtonRefreshItems_Click(object sender, EventArgs e)
+        {
+            GetItems();
+        }
+
+        private void ListBoxCases_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            GetItems();
+        }
+
+        private void GetItems()
+        {
+            if (ListBoxCases.SelectedIndex > -1)
+            {
+                Database.Get.Items(ListBoxCases.SelectedItem.ToString());
+            }
+            else
+            {
+                Messaging.ShowInfoMessageBox("You must select a case to perform this action.");
+            }
         }
     }
 }

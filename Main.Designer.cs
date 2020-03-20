@@ -33,7 +33,6 @@
             this.ButtonNewCase = new System.Windows.Forms.Button();
             this.ButtonNewItem = new System.Windows.Forms.Button();
             this.ButtonTriage = new System.Windows.Forms.Button();
-            this.ButtonSettings = new System.Windows.Forms.Button();
             this.ButtonInventory = new System.Windows.Forms.Button();
             this.ButtonExit = new System.Windows.Forms.Button();
             this.ListBoxCases = new System.Windows.Forms.ListBox();
@@ -60,6 +59,7 @@
             this.timerConnectivityCheck = new System.Windows.Forms.Timer(this.components);
             this.BtnRefreshCases = new System.Windows.Forms.Button();
             this.ButtonRefreshItems = new System.Windows.Forms.Button();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -74,6 +74,7 @@
             this.ButtonNewCase.Size = new System.Drawing.Size(112, 31);
             this.ButtonNewCase.TabIndex = 0;
             this.ButtonNewCase.Text = "New Case";
+            this.toolTip1.SetToolTip(this.ButtonNewCase, "Click to create a new DT3 case.");
             this.ButtonNewCase.UseVisualStyleBackColor = true;
             this.ButtonNewCase.Click += new System.EventHandler(this.ButtonNewCase_Click);
             // 
@@ -87,6 +88,7 @@
             this.ButtonNewItem.Size = new System.Drawing.Size(112, 31);
             this.ButtonNewItem.TabIndex = 1;
             this.ButtonNewItem.Text = "New Item";
+            this.toolTip1.SetToolTip(this.ButtonNewItem, "Click to create a new DT3 case item.");
             this.ButtonNewItem.UseVisualStyleBackColor = true;
             this.ButtonNewItem.Click += new System.EventHandler(this.ButtonNewItem_Click);
             // 
@@ -100,32 +102,21 @@
             this.ButtonTriage.Size = new System.Drawing.Size(112, 31);
             this.ButtonTriage.TabIndex = 2;
             this.ButtonTriage.Text = "Triage";
+            this.toolTip1.SetToolTip(this.ButtonTriage, "Click to launch the triage tool.");
             this.ButtonTriage.UseVisualStyleBackColor = true;
             this.ButtonTriage.Click += new System.EventHandler(this.ButtonTriage_Click);
-            // 
-            // ButtonSettings
-            // 
-            this.ButtonSettings.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.ButtonSettings.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ButtonSettings.Location = new System.Drawing.Point(72, 151);
-            this.ButtonSettings.Margin = new System.Windows.Forms.Padding(4);
-            this.ButtonSettings.Name = "ButtonSettings";
-            this.ButtonSettings.Size = new System.Drawing.Size(112, 31);
-            this.ButtonSettings.TabIndex = 3;
-            this.ButtonSettings.Text = "Settings";
-            this.ButtonSettings.UseVisualStyleBackColor = true;
-            this.ButtonSettings.Click += new System.EventHandler(this.ButtonSettings_Click);
             // 
             // ButtonInventory
             // 
             this.ButtonInventory.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.ButtonInventory.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ButtonInventory.Location = new System.Drawing.Point(72, 190);
+            this.ButtonInventory.Location = new System.Drawing.Point(72, 151);
             this.ButtonInventory.Margin = new System.Windows.Forms.Padding(4);
             this.ButtonInventory.Name = "ButtonInventory";
             this.ButtonInventory.Size = new System.Drawing.Size(112, 31);
             this.ButtonInventory.TabIndex = 4;
             this.ButtonInventory.Text = "4137";
+            this.toolTip1.SetToolTip(this.ButtonInventory, "Click to launch the 4137 wizard.");
             this.ButtonInventory.UseVisualStyleBackColor = true;
             this.ButtonInventory.Click += new System.EventHandler(this.ButtonInventory_Click);
             // 
@@ -133,12 +124,13 @@
             // 
             this.ButtonExit.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.ButtonExit.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ButtonExit.Location = new System.Drawing.Point(72, 229);
+            this.ButtonExit.Location = new System.Drawing.Point(72, 190);
             this.ButtonExit.Margin = new System.Windows.Forms.Padding(4);
             this.ButtonExit.Name = "ButtonExit";
             this.ButtonExit.Size = new System.Drawing.Size(112, 31);
             this.ButtonExit.TabIndex = 5;
             this.ButtonExit.Text = "Exit";
+            this.toolTip1.SetToolTip(this.ButtonExit, "Click to exit DT3");
             this.ButtonExit.UseVisualStyleBackColor = true;
             this.ButtonExit.Click += new System.EventHandler(this.ButtonExit_Click);
             // 
@@ -152,6 +144,7 @@
             this.ListBoxCases.Size = new System.Drawing.Size(416, 94);
             this.ListBoxCases.Sorted = true;
             this.ListBoxCases.TabIndex = 7;
+            this.ListBoxCases.SelectedIndexChanged += new System.EventHandler(this.ListBoxCases_SelectedIndexChanged);
             // 
             // ListBoxItems
             // 
@@ -296,6 +289,7 @@
             this.ButtonClassification.Size = new System.Drawing.Size(99, 31);
             this.ButtonClassification.TabIndex = 28;
             this.ButtonClassification.Text = "Classification";
+            this.toolTip1.SetToolTip(this.ButtonClassification, "Click to open Classification settings.");
             this.ButtonClassification.UseVisualStyleBackColor = true;
             this.ButtonClassification.Click += new System.EventHandler(this.ButtonClassification_Click);
             // 
@@ -307,6 +301,7 @@
             this.ButonAOR.Size = new System.Drawing.Size(78, 31);
             this.ButonAOR.TabIndex = 27;
             this.ButonAOR.Text = "AOR";
+            this.toolTip1.SetToolTip(this.ButonAOR, "Click to open AOR settings.");
             this.ButonAOR.UseVisualStyleBackColor = true;
             this.ButonAOR.Click += new System.EventHandler(this.ButonAOR_Click);
             // 
@@ -318,6 +313,7 @@
             this.ButtonCellex.Size = new System.Drawing.Size(78, 31);
             this.ButtonCellex.TabIndex = 26;
             this.ButtonCellex.Text = "CELLEX";
+            this.toolTip1.SetToolTip(this.ButtonCellex, "Click to open CELLEX settings.");
             this.ButtonCellex.UseVisualStyleBackColor = true;
             this.ButtonCellex.Click += new System.EventHandler(this.ButtonCellex_Click);
             // 
@@ -330,6 +326,7 @@
             this.ButtonMedexTypes.Size = new System.Drawing.Size(79, 31);
             this.ButtonMedexTypes.TabIndex = 25;
             this.ButtonMedexTypes.Text = "MEDEX";
+            this.toolTip1.SetToolTip(this.ButtonMedexTypes, "Click to open MEDEX settings.");
             this.ButtonMedexTypes.UseVisualStyleBackColor = true;
             this.ButtonMedexTypes.Click += new System.EventHandler(this.ButtonMedexTypes_Click);
             // 
@@ -347,6 +344,7 @@
             // 
             // textBoxStatus
             // 
+            this.textBoxStatus.Enabled = false;
             this.textBoxStatus.Location = new System.Drawing.Point(7, 63);
             this.textBoxStatus.Name = "textBoxStatus";
             this.textBoxStatus.Size = new System.Drawing.Size(100, 22);
@@ -361,6 +359,7 @@
             this.rbOffline.TabIndex = 1;
             this.rbOffline.TabStop = true;
             this.rbOffline.Text = "Offline";
+            this.toolTip1.SetToolTip(this.rbOffline, "Click if you know you are working offline.");
             this.rbOffline.UseVisualStyleBackColor = true;
             this.rbOffline.CheckedChanged += new System.EventHandler(this.RbOffline_CheckedChanged);
             // 
@@ -373,6 +372,7 @@
             this.rbOnline.TabIndex = 0;
             this.rbOnline.TabStop = true;
             this.rbOnline.Text = "Online";
+            this.toolTip1.SetToolTip(this.rbOnline, "Click to allow DT3 to validate the receiving server.");
             this.rbOnline.UseVisualStyleBackColor = true;
             this.rbOnline.CheckedChanged += new System.EventHandler(this.RbOnline_CheckedChanged);
             // 
@@ -394,6 +394,7 @@
             this.ButtonRefreshItems.Size = new System.Drawing.Size(35, 35);
             this.ButtonRefreshItems.TabIndex = 28;
             this.ButtonRefreshItems.UseVisualStyleBackColor = true;
+            this.ButtonRefreshItems.Click += new System.EventHandler(this.ButtonRefreshItems_Click);
             // 
             // Main
             // 
@@ -415,7 +416,6 @@
             this.Controls.Add(this.ListBoxCases);
             this.Controls.Add(this.ButtonExit);
             this.Controls.Add(this.ButtonInventory);
-            this.Controls.Add(this.ButtonSettings);
             this.Controls.Add(this.ButtonTriage);
             this.Controls.Add(this.ButtonNewItem);
             this.Controls.Add(this.ButtonNewCase);
@@ -437,7 +437,6 @@
         private System.Windows.Forms.Button ButtonNewCase;
         private System.Windows.Forms.Button ButtonNewItem;
         private System.Windows.Forms.Button ButtonTriage;
-        private System.Windows.Forms.Button ButtonSettings;
         private System.Windows.Forms.Button ButtonInventory;
         private System.Windows.Forms.Button ButtonExit;
         public System.Windows.Forms.ListBox ListBoxCases;
@@ -464,6 +463,7 @@
         private System.Windows.Forms.Timer timerConnectivityCheck;
         private System.Windows.Forms.Button BtnRefreshCases;
         private System.Windows.Forms.Button ButtonRefreshItems;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }
 

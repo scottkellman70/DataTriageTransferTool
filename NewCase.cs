@@ -36,8 +36,6 @@ namespace DataTriageTransferTool
 
         private void SaveCase()
         {
-            DT3Case item = new DT3Case();
-
             if (ComboBoxAor.SelectedIndex < 0)
             {
                 Messaging.ShowInfoMessageBox("You must select an AOR.");
@@ -49,6 +47,8 @@ namespace DataTriageTransferTool
                 Messaging.ShowInfoMessageBox("You must select a classification.");
                 return;
             }
+
+            DT3Case item = new DT3Case();
 
             item.AOR_ID = GetAorId(ComboBoxAor.SelectedItem.ToString().Trim());
             item.CaseNumber = textBoxCaseId.Text.Trim();
@@ -78,11 +78,6 @@ namespace DataTriageTransferTool
             TextBoxSubmitterName.Text = string.Empty;
             textBoxCaseId.Text = string.Empty;
             TextBoxSubjectName.Text = string.Empty;
-
-            Main main = new Main();
-            main.ListBoxCases.Items.Add(item.CaseNumber);
-            main.Refresh();
-            this.Close();
         }
 
         private int GetAorId(string aor)

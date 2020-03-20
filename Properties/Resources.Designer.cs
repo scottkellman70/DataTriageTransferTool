@@ -79,6 +79,24 @@ namespace DataTriageTransferTool.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to select * from cases where case_id = .
+        /// </summary>
+        internal static string case_item {
+            get {
+                return ResourceManager.GetString("case_item", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to select * from cases where id = .
+        /// </summary>
+        internal static string case_item_by_int {
+            get {
+                return ResourceManager.GetString("case_item_by_int", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to select * from cellex_types where type =.
         /// </summary>
         internal static string cellex_item {
@@ -106,7 +124,7 @@ namespace DataTriageTransferTool.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\admin\source\repos\DataTriageTransferTool\DT3.mdf;Integrated Security=True;Connect Timeout=30.
+        ///   Looks up a localized string similar to Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\OCONUS4\source\repos\DataTriageTransferTool\DT3.mdf;Integrated Security=True;Connect Timeout=30.
         /// </summary>
         internal static string dt3_connection_string {
             get {

@@ -126,7 +126,21 @@ namespace DataTriageTransferTool
             public static DataTable ZipSize(string name)
             {
                 DataTable table = new DataTable();
-                SqlDataAdapter dataAdapter = new SqlDataAdapter(Properties.Resources.zip_size_item  + "'" + name + "';", connectionString);
+                SqlDataAdapter dataAdapter = new SqlDataAdapter(Properties.Resources.zip_size_item + "'" + name + "';", connectionString);
+                dataAdapter.Fill(table);
+                return table;
+            }
+            public static DataTable Case(string name)
+            {
+                DataTable table = new DataTable();
+                SqlDataAdapter dataAdapter = new SqlDataAdapter(Properties.Resources.case_item + "'" + name + "';", connectionString);
+                dataAdapter.Fill(table);
+                return table;
+            }
+            public static DataTable Case(int id)
+            {
+                DataTable table = new DataTable();
+                SqlDataAdapter dataAdapter = new SqlDataAdapter(Properties.Resources.case_item_by_int + id + ";", connectionString);
                 dataAdapter.Fill(table);
                 return table;
             }
@@ -228,9 +242,38 @@ namespace DataTriageTransferTool
 
                 Insert.Item(sql, suppressMessage);
             }
-            public static void CaseItem(string case_number)
+            public static void CaseItem(int case_id, string make, string model, string size, int size_id, string serial_number, string imei, string iccid, string imsi,
+                string subscriber_account, string comments, int zipped, int sent, int open, string date_closed, string date_updated, string date_submitted, string type,
+                int is_medex, int is_mobile, int is_sim, int is_sub_item, int parent_id, string folder_name)
             {
+                string sql = "insert into items (case_id,make,model,size,size_type_id,serial_number,imei,iccid,imsi,subscriber_account,comments,zipped,sent,open," +
+                    "date_closed,date_updated,date_submitted,type,isMedex,isMobile,isSim,issubItem,parent_id,folder_name) "
+               + "values(" + case_id + ","
+               + "'" + make + "',"
+               + "'" + model + "',"
+               + "'" + size + "',"
+               + size_id + ","
+               + serial_number + ","
+               + "'" + imei + "',"
+               + "'" + iccid + "',"
+               + "'" + imsi + "',"
+               + "'" + subscriber_account + "',"
+               + "'" + comments + "',"
+               + zipped + ","
+               + sent + ","
+               + open + ","
+               + "'" + date_closed + "',"
+               + "'" + date_updated + "',"
+               + "'" + date_submitted + "',"
+               + "'" + type + "',"
+               + is_medex + ","
+               + is_mobile + ","
+               + is_sim + ","
+               + is_sub_item + ","
+               + parent_id + ","
+               + "'" + folder_name + "'" + "); ";
 
+                Insert.Item(sql, false);
             }
             public static void CaseFolder(string path, bool suppressMessage = false)
             {
