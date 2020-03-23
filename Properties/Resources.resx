@@ -127,7 +127,7 @@
     <value>select * from cases where case_id = </value>
   </data>
   <data name="case_item_by_int" xml:space="preserve">
-    <value>select * from cases where id = </value>
+    <value>select * from items where id = </value>
   </data>
   <data name="cellex_item" xml:space="preserve">
     <value>select * from cellex_types where type =</value>

@@ -13,9 +13,9 @@
         public string IMSI;
         public string SubscriberAccount;
         public string Comments;
-        public static int Sent;
-        public static int Zipped;
-        public static int Open;
+        public int isSent;
+        public int Zipped;
+        public int isOpen;
         public string ClosedDate;
         public string UpdatedDate;
         public string SubmittedDate;

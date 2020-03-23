@@ -1,12 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace DataTriageTransferTool
@@ -34,11 +27,31 @@ namespace DataTriageTransferTool
             NewCase newCase = new NewCase();
             newCase.ShowDialog();
         }
+        private int GetCaseId(string case_id)
+        {
+            DataTable dataTable = Database.Get.Case(case_id);
+            if (dataTable.Rows.Count > 0)
+            {
+                return dataTable.Rows[0].Field<int>("id");
+            }
+            else
+            {
+                return -1;
+            }
+        }
 
         private void ButtonNewItem_Click(object sender, EventArgs e)
         {
-            NewItem newItem = new NewItem();
-            newItem.ShowDialog();
+            if (ListBoxCases.SelectedIndex > -1)
+            {
+                int id = GetCaseId(ListBoxCases.SelectedItem.ToString());
+                NewItem newItem = new NewItem(id, ListBoxCases.SelectedItem.ToString());
+                newItem.ShowDialog();
+            }
+            else
+            {
+                Messaging.ShowInfoMessageBox("You must select a case before you can enter a new item.");
+            }
         }
 
         private void ButtonTriage_Click(object sender, EventArgs e)
@@ -170,7 +183,15 @@ namespace DataTriageTransferTool
         {
             if (ListBoxCases.SelectedIndex > -1)
             {
-                Database.Get.Items(ListBoxCases.SelectedItem.ToString());
+                DataTable dataTable = Database.Get.Items(GetCaseId(ListBoxCases.SelectedItem.ToString()));
+                if (dataTable.Rows.Count > 0)
+                {
+                    ListBoxItems.Items.Clear();
+                    foreach (DataRow item in dataTable.Rows)
+                    {
+                        ListBoxItems.Items.Add(item["folder_name"].ToString());
+                    }
+                }
             }
             else
             {

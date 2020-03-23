@@ -1,17 +1,27 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.IO;
 using System.Windows.Forms;
 
 namespace DataTriageTransferTool
 {
     public partial class NewCase : Form
     {
+        public string _CasePath { 
+            get {
+                DataTable dataTable = Database.Get.CaseFolder();
+                if(dataTable.Rows.Count > 0)
+                {
+                    return dataTable.Rows[0].Field<string>("location");
+                }
+                else
+                {
+                    return string.Empty;
+                }
+            } 
+        }
+
+
         public NewCase()
         {
             InitializeComponent();
@@ -65,9 +75,27 @@ namespace DataTriageTransferTool
             item.Sent = 0;
             item.Zipped = 0;
 
-            Database.Insert.Case(item.CaseNumber, item.MGRS, item.Objective,
-                item.SubjectName, item.AOR_ID, item.Classification_ID,
-                item.SubmitterName, item.SubmitterEmail, item.Comments);
+            try
+            {
+                Database.Insert.Case(item.CaseNumber, item.MGRS, item.Objective,
+                    item.SubjectName, item.AOR_ID, item.Classification_ID,
+                    item.SubmitterName, item.SubmitterEmail, item.Comments);
+                
+                string folderPath = Path.Combine(_CasePath, item.CaseNumber);
+                if (!Directory.Exists(folderPath))
+                {
+                    Directory.CreateDirectory(folderPath);
+                    WriteCaseFolders(folderPath);
+                }
+                else
+                {
+                    Messaging.ShowInfoMessageBox("Case already exists, please change the name and try again.");
+                }
+            }
+            catch
+            {
+
+            }
 
             ComboBoxAor.SelectedIndex = -1;
             ComboBoxClassification.SelectedIndex = -1;
@@ -78,6 +106,29 @@ namespace DataTriageTransferTool
             TextBoxSubmitterName.Text = string.Empty;
             textBoxCaseId.Text = string.Empty;
             TextBoxSubjectName.Text = string.Empty;
+            this.Close();
+        }
+
+        private void WriteCaseFolders(string NewCaseName)
+        {
+            try
+            {
+                Directory.CreateDirectory(NewCaseName + @"\SofexCase Information");
+                Directory.CreateDirectory(NewCaseName + @"\SofexCase Information\5Ws");
+                Directory.CreateDirectory(NewCaseName + @"\SofexCase Information\SofexCase Photos");
+                Directory.CreateDirectory(NewCaseName + @"\SofexCase Information\SOFEX Responses");
+                Directory.CreateDirectory(NewCaseName + @"\SofexCase Information\4137");
+                Directory.CreateDirectory(NewCaseName + @"\SofexCase Information\Other");
+                Directory.CreateDirectory(NewCaseName + @"\SofexCase Information\StoryBoard");
+                Directory.CreateDirectory(NewCaseName + @"\SofexCase Information\Inventory");
+                Directory.CreateDirectory(NewCaseName + @"\DOMEX");
+                Directory.CreateDirectory(NewCaseName + @"\BIO");
+                Directory.CreateDirectory(NewCaseName + @"\Chemistry");
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
 
         private int GetAorId(string aor)

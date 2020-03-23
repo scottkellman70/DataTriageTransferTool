@@ -102,6 +102,7 @@
             this.TextBoxSubmitterEmail.Font = new System.Drawing.Font("Arial", 12F);
             this.TextBoxSubmitterEmail.Location = new System.Drawing.Point(478, 151);
             this.TextBoxSubmitterEmail.Margin = new System.Windows.Forms.Padding(4);
+            this.TextBoxSubmitterEmail.MaxLength = 50;
             this.TextBoxSubmitterEmail.Name = "TextBoxSubmitterEmail";
             this.TextBoxSubmitterEmail.Size = new System.Drawing.Size(401, 26);
             this.TextBoxSubmitterEmail.TabIndex = 4;
@@ -122,6 +123,7 @@
             this.TextBoxSubmitterName.Font = new System.Drawing.Font("Arial", 12F);
             this.TextBoxSubmitterName.Location = new System.Drawing.Point(477, 78);
             this.TextBoxSubmitterName.Margin = new System.Windows.Forms.Padding(4);
+            this.TextBoxSubmitterName.MaxLength = 50;
             this.TextBoxSubmitterName.Name = "TextBoxSubmitterName";
             this.TextBoxSubmitterName.Size = new System.Drawing.Size(401, 26);
             this.TextBoxSubmitterName.TabIndex = 2;
@@ -164,6 +166,7 @@
             this.TextBoxComments.Font = new System.Drawing.Font("Arial", 12F);
             this.TextBoxComments.Location = new System.Drawing.Point(28, 380);
             this.TextBoxComments.Margin = new System.Windows.Forms.Padding(4);
+            this.TextBoxComments.MaxLength = 5000;
             this.TextBoxComments.Multiline = true;
             this.TextBoxComments.Name = "TextBoxComments";
             this.TextBoxComments.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
@@ -198,6 +201,7 @@
             this.TextBoxSubjectName.Font = new System.Drawing.Font("Arial", 12F);
             this.TextBoxSubjectName.Location = new System.Drawing.Point(27, 295);
             this.TextBoxSubjectName.Margin = new System.Windows.Forms.Padding(4);
+            this.TextBoxSubjectName.MaxLength = 50;
             this.TextBoxSubjectName.Name = "TextBoxSubjectName";
             this.TextBoxSubjectName.Size = new System.Drawing.Size(401, 26);
             this.TextBoxSubjectName.TabIndex = 7;
@@ -218,6 +222,7 @@
             this.TextBoxObjective.Font = new System.Drawing.Font("Arial", 12F);
             this.TextBoxObjective.Location = new System.Drawing.Point(28, 217);
             this.TextBoxObjective.Margin = new System.Windows.Forms.Padding(4);
+            this.TextBoxObjective.MaxLength = 150;
             this.TextBoxObjective.Name = "TextBoxObjective";
             this.TextBoxObjective.Size = new System.Drawing.Size(401, 26);
             this.TextBoxObjective.TabIndex = 5;
@@ -238,6 +243,7 @@
             this.TextBoxMgrs.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TextBoxMgrs.Location = new System.Drawing.Point(27, 143);
             this.TextBoxMgrs.Margin = new System.Windows.Forms.Padding(5);
+            this.TextBoxMgrs.MaxLength = 20;
             this.TextBoxMgrs.Name = "TextBoxMgrs";
             this.TextBoxMgrs.Size = new System.Drawing.Size(401, 26);
             this.TextBoxMgrs.TabIndex = 3;
@@ -258,6 +264,7 @@
             this.textBoxCaseId.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxCaseId.Location = new System.Drawing.Point(27, 77);
             this.textBoxCaseId.Margin = new System.Windows.Forms.Padding(5);
+            this.textBoxCaseId.MaxLength = 25;
             this.textBoxCaseId.Name = "textBoxCaseId";
             this.textBoxCaseId.Size = new System.Drawing.Size(401, 26);
             this.textBoxCaseId.TabIndex = 1;

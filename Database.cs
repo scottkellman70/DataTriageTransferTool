@@ -78,11 +78,22 @@ namespace DataTriageTransferTool
                 dataAdapter.Fill(table);
                 return table;
             }
-            public static string[] Items(string case_number)
+            public static DataTable Items(int case_number)
             {
-                string[] items = { "1", "1.1", "2", "2.1", "2.2", "3" };
-                return items;
+                DataTable table = new DataTable();
+                SqlDataAdapter dataAdapter = new SqlDataAdapter(Properties.Resources.select_items +  case_number, connectionString);
+                dataAdapter.Fill(table);
+                return table;
             }
+
+            public static DataTable Items(string case_number)
+            {
+                DataTable table = new DataTable();
+                SqlDataAdapter dataAdapter = new SqlDataAdapter(Properties.Resources.select_items + "'" + case_number + "'", connectionString);
+                dataAdapter.Fill(table);
+                return table;
+            }
+
             public static string[] Folders(string type)
             {
                 string[] folders = { "photos", "documents", "videos" };
@@ -138,6 +149,13 @@ namespace DataTriageTransferTool
                 return table;
             }
             public static DataTable Case(int id)
+            {
+                DataTable table = new DataTable();
+                SqlDataAdapter dataAdapter = new SqlDataAdapter(Properties.Resources.case_item_by_int + id + ";", connectionString);
+                dataAdapter.Fill(table);
+                return table;
+            }
+            public static DataTable Item(int id)
             {
                 DataTable table = new DataTable();
                 SqlDataAdapter dataAdapter = new SqlDataAdapter(Properties.Resources.case_item_by_int + id + ";", connectionString);
@@ -246,14 +264,14 @@ namespace DataTriageTransferTool
                 string subscriber_account, string comments, int zipped, int sent, int open, string date_closed, string date_updated, string date_submitted, string type,
                 int is_medex, int is_mobile, int is_sim, int is_sub_item, int parent_id, string folder_name)
             {
-                string sql = "insert into items (case_id,make,model,size,size_type_id,serial_number,imei,iccid,imsi,subscriber_account,comments,zipped,sent,open," +
+                string sql = "insert into items (case_id,make,model,size,size_type_id,serial_number,imei,iccid,imsi,subscriber_acct,comments,zipped,isSent,isOpen," +
                     "date_closed,date_updated,date_submitted,type,isMedex,isMobile,isSim,issubItem,parent_id,folder_name) "
                + "values(" + case_id + ","
                + "'" + make + "',"
                + "'" + model + "',"
                + "'" + size + "',"
                + size_id + ","
-               + serial_number + ","
+               + "'" + serial_number + "',"
                + "'" + imei + "',"
                + "'" + iccid + "',"
                + "'" + imsi + "',"

@@ -9,10 +9,30 @@ namespace DataTriageTransferTool
 {
     public partial class NewItem : Form
     {
-        public NewItem()
+        public int _case_number { get; set; }
+        public string _case_name { get; set; }
+        public string _CasePath
+        {
+            get
+            {
+                DataTable dataTable = Database.Get.CaseFolder();
+                if (dataTable.Rows.Count > 0)
+                {
+                    return dataTable.Rows[0].Field<string>("location");
+                }
+                else
+                {
+                    return string.Empty;
+                }
+            }
+        }
+
+        public NewItem(int case_id, string case_name)
         {
             InitializeComponent();
-            GetCases();
+            _case_number = case_id;
+            _case_name = case_name;
+            GetItems();
             GetSizes();
             GetMedexTypes();
             GetCellexTypes();
@@ -52,23 +72,32 @@ namespace DataTriageTransferTool
             }
             else
             {
-                if (comboBoxCellexTypes.SelectedIndex == -1 || comboBoxMedexTypes.SelectedIndex == -1)
+                if (comboBoxCellexTypes.SelectedIndex == -1)
                 {
-                    Messaging.ShowInfoMessageBox("You must select either MEDEX or CELLEX type.");
+                    if(comboBoxMedexTypes.SelectedIndex == -1)
+                    {
+                        Messaging.ShowInfoMessageBox("You must select either MEDEX or CELLEX type.");
+                        return;
+                    }
+                }
+            }
+
+            if (comboBoxCellexTypes.SelectedIndex > -1)
+            {
+                if (comboBoxCellexTypes.SelectedItem.ToString() == "Other" && textBoxCellexOther.Text == string.Empty)
+                {
+                    Messaging.ShowInfoMessageBox("If you select other you must put a value in the other box.");
                     return;
                 }
             }
 
-            if (comboBoxCellexTypes.SelectedItem.ToString() == "Other" && textBoxCellexOther.Text == string.Empty)
+            if (comboBoxMedexTypes.SelectedIndex > -1)
             {
-                Messaging.ShowInfoMessageBox("If you select other you must put a value in the other box.");
-                return;
-            }
-
-            if (comboBoxMedexTypes.SelectedItem.ToString() == "Other" && textBoxMedexOther.Text == string.Empty)
-            {
-                Messaging.ShowInfoMessageBox("If you select other you must put a value in the other box.");
-                return;
+                if (comboBoxMedexTypes.SelectedItem.ToString() == "Other" && textBoxMedexOther.Text == string.Empty)
+                {
+                    Messaging.ShowInfoMessageBox("If you select other you must put a value in the other box.");
+                    return;
+                }
             }
 
             if (!string.IsNullOrEmpty(textBoxSize.Text) && comboBoxSizes.SelectedIndex < 0)
@@ -77,7 +106,7 @@ namespace DataTriageTransferTool
                 return;
             }
 
-            if (this.checkBoxSubItem.Checked == true && comboBoxExistingCases.SelectedIndex < 0)
+            if (this.checkBoxSubItem.Checked == true && comboBoxExistingItems.SelectedIndex < 0)
             {
                 Messaging.ShowInfoMessageBox("If you enter select sub item you must select a case from the drop down.");
                 return;
@@ -85,7 +114,7 @@ namespace DataTriageTransferTool
 
             Item item = new Item();
 
-            if (comboBoxExistingCases.SelectedIndex > -1)
+            if (comboBoxExistingItems.SelectedIndex > -1)
             {
                 item.Parent_ID = GetCaseId();
             }
@@ -133,36 +162,56 @@ namespace DataTriageTransferTool
             }
 
             item.CaseNumber = GetCaseId();
-            item.SizeType_ID = GetSizeId();
-            item.Size = comboBoxExistingCases.SelectedItem.ToString() + comboBoxSizes.SelectedItem.ToString();
+
+            if(comboBoxSizes.SelectedIndex > -1)
+            {
+                item.SizeType_ID = GetSizeId();
+            }
+            
+            item.Size = textBoxSize.Text.ToString();
             item.Make = textBoxMake.Text.Trim();
             item.Comments = tbComments.Text.Trim();
             item.ICCID = textBoxICCID.Text.Trim();
             item.IMEI = textBoxIMEI.Text.Trim();
             item.IMSI = textBoxIMSI.Text.Trim();
-            item.SerialNumber = textBoxSerial.Text;
+            item.SerialNumber = textBoxSerial.Text.Trim();
             item.SubmittedDate = DateTime.Now.ToShortDateString();
             item.UpdatedDate = DateTime.Now.ToShortDateString();
+            item.SubscriberAccount = textBoxSubscriberAccount.Text.Trim();
+            item.ClosedDate = "1900-01-01";
+            item.Model = textBoxModel.Text.Trim();
+            item.isSent = 0;
+            item.isOpen = 1;
+            item.Zipped = 0;
+            item.isSubItem = checkBoxSubItem.Checked == true ? 1 : 0;
+            
+            if (item.isSubItem == 1)
+            {
+
+            }
+            
+            item.Parent_ID = GetCaseId();
 
             SaveNewItem(item);
         }
 
-        public void GetCases()
+        public void GetItems()
         {
-            DataTable dataTable = Database.Get.Cases();
+            DataTable dataTable = Database.Get.Items(_case_number);
             if (dataTable.Rows.Count > 0)
             {
-                comboBoxExistingCases.Items.Clear();
+                comboBoxExistingItems.Items.Clear();
                 foreach (DataRow item in dataTable.Rows)
                 {
-                    comboBoxExistingCases.Items.Add(item["case_id"].ToString());
+                    string name = dataTable.Rows[0].Field<string>("folder_name");
+                    comboBoxExistingItems.Items.Add(name);
                 }
             }
         }
 
         private int GetCaseId()
         {
-            DataTable dataTable = Database.Get.Case(comboBoxExistingCases.SelectedItem.ToString());
+            DataTable dataTable = Database.Get.Case(_case_number);
             if (dataTable.Rows.Count > 0)
             {
                 return dataTable.Rows[0].Field<int>("id");
@@ -172,6 +221,31 @@ namespace DataTriageTransferTool
                 return -1;
             }
         }
+        private string GetCaseName()
+        {
+            DataTable dataTable = Database.Get.Case(_case_number);
+            if (dataTable.Rows.Count > 0)
+            {
+                return dataTable.Rows[0].Field<string>("case_id");
+            }
+            else
+            {
+                return string.Empty;
+            }
+        }
+        private string GetCaseName(int case_id)
+        {
+            DataTable dataTable = Database.Get.Case(case_id);
+            if (dataTable.Rows.Count > 0)
+            {
+                return dataTable.Rows[0].Field<string>("case_id");
+            }
+            else
+            {
+                return string.Empty;
+            }
+        }
+
         private int GetSizeId()
         {
             DataTable dataTable = Database.Get.Size(comboBoxSizes.SelectedItem.ToString());
@@ -202,17 +276,9 @@ namespace DataTriageTransferTool
         private double GetItemNumber(Item item)
         {
             double itemNum = 0;
-            string CaseName;
             string caseFolder;
-
-            DataTable dataTable = Database.Get.Case(comboBoxExistingCases.SelectedItem.ToString());
+            
             DataTable dataTable1 = Database.Get.CaseFolder();
-
-            if (dataTable.Rows.Count < 1)
-            {
-                Messaging.ShowInfoMessageBox("Case not found.");
-                return -1;
-            }
 
             if (dataTable1.Rows.Count < 1)
             {
@@ -220,22 +286,27 @@ namespace DataTriageTransferTool
                 return -1;
             }
 
-            CaseName = dataTable.Rows[0].Field<string>("case_id");
-            caseFolder = dataTable.Rows[0].Field<string>("location");
+            caseFolder = dataTable1.Rows[0].Field<string>("location");
 
-            string caseDirectory = CaseName;
             List<double> decimalList = new List<double>();
             GFG gg = new GFG();
 
-            string fullPath = Path.Combine(caseFolder, caseDirectory, "DOMEX");
+            string fullPath = Path.Combine(caseFolder, _case_name, "DOMEX");
             string[] items = Directory.GetDirectories(fullPath);
 
             if (item.isSubItem == 1)
             {
-                if (!string.IsNullOrEmpty(CaseName))
+                if (!string.IsNullOrEmpty(_case_name))
                 {
                     CheckParent(item);
-                    string[] splitName = item.Parent_ID.ToString().Split('_');
+                    DataTable dataTable = Database.Get.Items(item.Parent_ID);
+                    if (dataTable.Rows.Count < 1)
+                    {
+                        Messaging.ShowInfoMessageBox("Subitem parent not found");
+                        return -1;
+                    }
+
+                    string[] splitName = dataTable.Rows[0].Field<string>("folder_name").ToString().Split('_');
                     string primaryNum = splitName[0].Substring(0, 1);
 
                     itemNum = Convert.ToDouble(splitName[0]);
@@ -301,11 +372,13 @@ namespace DataTriageTransferTool
         private void CheckParent(Item parent)
         {
             string CaseName;
-            DataTable dataTable = Database.Get.Case(parent.Parent_ID);
+            DataTable dataTable = Database.Get.Item(parent.Parent_ID);
             if (dataTable.Rows.Count < 1)
             {
                 Messaging.ShowInfoMessageBox("Case not found.");
+                return;
             }
+
             CaseName = dataTable.Rows[0].Field<string>("case_id");
 
             if (CaseName.Contains("."))
@@ -317,27 +390,6 @@ namespace DataTriageTransferTool
         {
             return Regex.Replace(nameIn, @"[^0-9a-zA-Z_-]+:\/", "");
         }
-        private void WriteCaseFolders(string NewCaseName)
-        {
-            try
-            {
-                Directory.CreateDirectory(NewCaseName + @"\SofexCase Information");
-                Directory.CreateDirectory(NewCaseName + @"\SofexCase Information\5Ws");
-                Directory.CreateDirectory(NewCaseName + @"\SofexCase Information\SofexCase Photos");
-                Directory.CreateDirectory(NewCaseName + @"\SofexCase Information\SOFEX Responses");
-                Directory.CreateDirectory(NewCaseName + @"\SofexCase Information\4137");
-                Directory.CreateDirectory(NewCaseName + @"\SofexCase Information\Other");
-                Directory.CreateDirectory(NewCaseName + @"\SofexCase Information\StoryBoard");
-                Directory.CreateDirectory(NewCaseName + @"\SofexCase Information\Inventory");
-                Directory.CreateDirectory(NewCaseName + @"\DOMEX");
-                Directory.CreateDirectory(NewCaseName + @"\BIO");
-                Directory.CreateDirectory(NewCaseName + @"\Chemistry");
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-        }
 
         /// <summary>
         /// 
@@ -346,6 +398,7 @@ namespace DataTriageTransferTool
         private void SaveNewItem(Item item)
         {
             double itemNum = GetItemNumber(item);
+            string case_name = GetCaseName();
 
             if (itemNum > 0)
             {
@@ -357,13 +410,21 @@ namespace DataTriageTransferTool
 
                 string folderName = itemNum + "_" + itemMake + "_" + itemModel + "_" + itemType + "_" + itemSize + "_" + itemSerNo;
                 item.folderName = folderName;
+                
 
                 item.SubmittedDate = DateTime.Now.ToString("s");
-                string newItemDirectory = item.CaseNumber + @"\" + item.CaseNumber + @"\DOMEX\" + folderName;
+                string newItemDirectory = _CasePath + @"\" + case_name + @"\DOMEX\" + folderName;
+
+                int case_num = GetCaseId();
+
+                Database.Insert.CaseItem(case_num, item.Make, item.Model, item.Size, item.SizeType_ID, item.SerialNumber, item.IMEI, item.ICCID, item.IMSI
+                    , item.SubscriberAccount, item.Comments, 0, 0, 1, item.ClosedDate, item.UpdatedDate, item.SubmittedDate, item.Type
+                    , item.isMedex, item.isMobile, item.isSim, item.isSubItem, item.Parent_ID, item.folderName);
 
                 if (Directory.Exists(newItemDirectory))
                 {
                     Messaging.ShowInfoMessageBox("Directory already exists, please rename.");
+                    return;
                 }
                 else
                 {
@@ -386,13 +447,6 @@ namespace DataTriageTransferTool
                         CreateMobileFolders(newItemDirectory);
                     }
                 }
-
-                int case_num = GetCaseId();
-
-
-                Database.Insert.CaseItem(case_num, item.Make, item.Model, item.Size, item.SizeType_ID, item.SerialNumber, item.IMEI, item.ICCID, item.IMSI
-                    , item.SubscriberAccount, item.Comments, 0, 0, 1, item.ClosedDate, item.UpdatedDate, item.SubmittedDate, item.Type
-                    , item.isMedex, item.isMobile, item.isSim, item.isSubItem, item.Parent_ID, item.folderName);
 
                 textBoxSize.Text = string.Empty;
                 textBoxCellexOther.Text = string.Empty;

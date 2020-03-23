@@ -88,7 +88,7 @@ namespace DataTriageTransferTool.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to select * from cases where id = .
+        ///   Looks up a localized string similar to select * from items where id = .
         /// </summary>
         internal static string case_item_by_int {
             get {

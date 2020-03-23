@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NewItem));
-            this.comboBoxExistingCases = new System.Windows.Forms.ComboBox();
+            this.comboBoxExistingItems = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.buttonCancelNewItem = new System.Windows.Forms.Button();
             this.buttonSaveItem = new System.Windows.Forms.Button();
@@ -64,14 +64,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
-            // comboBoxExistingCases
+            // comboBoxExistingItems
             // 
-            this.comboBoxExistingCases.FormattingEnabled = true;
-            this.comboBoxExistingCases.Location = new System.Drawing.Point(16, 77);
-            this.comboBoxExistingCases.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.comboBoxExistingCases.Name = "comboBoxExistingCases";
-            this.comboBoxExistingCases.Size = new System.Drawing.Size(352, 28);
-            this.comboBoxExistingCases.TabIndex = 1;
+            this.comboBoxExistingItems.FormattingEnabled = true;
+            this.comboBoxExistingItems.Location = new System.Drawing.Point(16, 77);
+            this.comboBoxExistingItems.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.comboBoxExistingItems.Name = "comboBoxExistingItems";
+            this.comboBoxExistingItems.Size = new System.Drawing.Size(352, 28);
+            this.comboBoxExistingItems.TabIndex = 1;
             // 
             // label1
             // 
@@ -79,9 +79,9 @@
             this.label1.Location = new System.Drawing.Point(12, 43);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(113, 20);
+            this.label1.Size = new System.Drawing.Size(108, 20);
             this.label1.TabIndex = 2;
-            this.label1.Text = "Existing Cases";
+            this.label1.Text = "Existing Items";
             // 
             // buttonCancelNewItem
             // 
@@ -361,11 +361,11 @@
             // 
             // tbComments
             // 
-            this.tbComments.Location = new System.Drawing.Point(25, 414);
+            this.tbComments.Location = new System.Drawing.Point(16, 414);
             this.tbComments.MaxLength = 500;
             this.tbComments.Multiline = true;
             this.tbComments.Name = "tbComments";
-            this.tbComments.Size = new System.Drawing.Size(739, 107);
+            this.tbComments.Size = new System.Drawing.Size(801, 107);
             this.tbComments.TabIndex = 50;
             // 
             // NewItem
@@ -403,7 +403,7 @@
             this.Controls.Add(this.label19);
             this.Controls.Add(this.textBoxMake);
             this.Controls.Add(this.label18);
-            this.Controls.Add(this.comboBoxExistingCases);
+            this.Controls.Add(this.comboBoxExistingItems);
             this.Controls.Add(this.label1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
@@ -420,7 +420,7 @@
 
         #endregion
 
-        private System.Windows.Forms.ComboBox comboBoxExistingCases;
+        private System.Windows.Forms.ComboBox comboBoxExistingItems;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button buttonCancelNewItem;
         private System.Windows.Forms.Button buttonSaveItem;
